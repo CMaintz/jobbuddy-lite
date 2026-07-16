@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Job Search</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <div class="brand">ai-job-<span>search</span></div>
+    <button data-page="dashboard" class="active">📊 Dashboard</button>
+    <button data-page="jobs">🔍 Find Jobs</button>
+    <button data-page="pipeline">📋 Pipeline</button>
+    <button data-page="docs">📄 Documents</button>
+    <button data-page="assistant">🤖 Assistant</button>
+    <div class="foot">Thin GUI over the Claude Code workflow.<br>State lives in the same files the CLI uses.</div>
+  </nav>
+
+  <main>
+    <section class="page active" id="page-dashboard">
+      <h1>Dashboard</h1>
+      <div class="sub">Funnel analytics from <code>job_search_tracker.csv</code> — same definitions as <code>/stats</code>.</div>
+      <div class="cards" id="statCards"></div>
+      <div class="panel"><h2>Funnel</h2><div class="barwrap"><div class="bars" id="funnelBars"></div></div></div>
+      <div class="panel"><h2>Applications per week</h2><div class="barwrap"><div class="bars" id="weekBars"></div></div></div>
+      <div class="panel"><h2>Needs attention</h2><div id="staleList"></div></div>
+      <div class="panel"><h2>By channel</h2><div id="byChannel"></div></div>
+    </section>
+
+    <section class="page" id="page-jobs">
+      <h1>Find Jobs</h1>
+      <div class="sub">Searches the installed portal CLIs directly (<code>.agents/skills/*</code>) — no scraping logic in the GUI.</div>
+      <div class="toolbar">
+        <input type="text" id="jobQuery" placeholder="Job title or skill, e.g. backend developer">
+        <input type="text" id="jobLocation" placeholder="Location (optional)" style="width:170px">
+        <select id="jobAge"><option value="14">≤ 14 days</option><option value="7">≤ 7 days</option><option value="30">≤ 30 days</option></select>
+        <button class="btn" id="jobSearchBtn">Search</button>
+      </div>
+      <div class="chips" id="portalChips" style="margin-bottom:16px"></div>
+      <div class="joblist" id="jobResults"><div class="empty">Pick portals and search.</div></div>
+    </section>
+
+    <section class="page" id="page-pipeline">
+      <h1>Pipeline</h1>
+      <div class="sub">Kanban over the tracker. Dragging a card updates the same CSV <code>/outcome</code> writes.</div>
+      <div class="toolbar">
+        <button class="btn" id="addAppBtn">+ Add application</button>
+        <button class="btn ghost" id="viewToggle">Table view</button>
+      </div>
+      <div class="kanban" id="kanban"></div>
+      <div class="panel" id="trackerTable" style="display:none"></div>
+    </section>
+
+    <section class="page" id="page-docs">
+      <h1>Documents</h1>
+      <div class="sub">Generated CVs, cover letters, application archives and upskill reports.</div>
+      <div class="docs">
+        <div class="doclist panel" id="docList"></div>
+        <div class="preview" id="docPreview"><div class="empty">Select a document.</div></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-assistant">
+      <h1>Assistant</h1>
+      <div class="sub">Drives Claude Code headless in the workspace — same skills, same permissions, streamed here.</div>
+      <div class="toolbar">
+        <button class="btn ghost small qc" data-cmd="/scrape">/scrape</button>
+        <button class="btn ghost small qc" data-cmd="/rank">/rank</button>
+        <button class="btn ghost small qc" data-cmd="/upskill">/upskill</button>
+        <button class="btn ghost small qc" data-cmd="/outcome">/outcome</button>
+        <select id="permMode" title="Permission mode">
+          <option value="acceptEdits">acceptEdits</option>
+          <option value="default">default (may block)</option>
+          <option value="bypassPermissions">bypassPermissions</option>
+        </select>
+        <button class="btn ghost small" id="newSession">New session</button>
+        <button class="btn danger small" id="killRun" style="display:none">Stop</button>
+      </div>
+      <div class="chatwrap">
+        <div class="chatlog" id="chatlog">
+          <div class="msg meta">New session. Run a command or type a message — e.g. <b>/apply &lt;job url&gt;</b>.</div>
+        </div>
+        <div class="chatbar">
+          <input type="text" id="chatInput" placeholder="/apply https://... — or reply to Claude">
+          <button class="btn" id="chatSend">Send</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-bg" id="modalBg"><div class="modal" id="modalBox"></div></div>
+  <script src="/app.js"></script>
+</body>
+</html>
