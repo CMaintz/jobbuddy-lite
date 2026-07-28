@@ -6,9 +6,11 @@ const fs = require("fs");
 
 const PORT = Number(process.env.GUI_PORT ?? 8790);
 
-// When packaged, the exe lives in the repo root; in dev, go one level up from electron/
+// PORTABLE_EXECUTABLE_DIR is set by electron-builder's NSIS portable target to the
+// folder where the user placed (and ran) the exe — i.e., the repo root.
+// process.execPath points to the self-extracted temp copy, so we must not use it.
 const REPO_ROOT = app.isPackaged
-  ? path.dirname(process.execPath)
+  ? (process.env.PORTABLE_EXECUTABLE_DIR || path.dirname(process.execPath))
   : path.join(__dirname, "..");
 
 let serverProc = null;
