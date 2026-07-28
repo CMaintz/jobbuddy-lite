@@ -95,3 +95,8 @@ upskill/*.md
 
 # Brainstorm mockups (superpowers visual companion) - never ship
 .superpowers/
+
+# Electron build output
+dist/
+# Portable exe dropped into repo root for distribution
+Jobbuddy Lite*.exe

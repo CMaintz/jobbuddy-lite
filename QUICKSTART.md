@@ -145,6 +145,27 @@ cd gui && bun install && bun run typecheck
 
 ---
 
+## Desktop app (Electron)
+
+The Electron wrapper turns the GUI into a proper desktop window — no browser tab, no terminal needed for daily use. The resulting `.exe` goes in the repo root and auto-starts the Bun server when launched.
+
+### Build the exe (one-time, done by you)
+
+```bash
+npm install            # downloads Electron — ~200 MB, takes a minute
+npm run build:win      # produces dist/Jobbuddy Lite.exe
+```
+
+Copy `dist/Jobbuddy Lite.exe` to the repo root (next to `gui/`, `CLAUDE.md`, etc.). You can also create a desktop shortcut pointing there.
+
+> Prerequisites that still need to be installed on the target machine: **Bun** (`https://bun.sh`), **Claude Code** (`npm install -g @anthropic-ai/claude-code`), and the portal CLIs (`bun install` in each `.agents/skills/*/cli`). The exe itself is self-contained (Electron is bundled); only Bun must be in PATH or `%USERPROFILE%\.bun\bin\`.
+
+### Daily use
+
+Double-click `Jobbuddy Lite.exe`. A window opens with a "Starting…" screen while the server warms up (~1–2 s), then loads the full GUI. Close the window to stop everything.
+
+---
+
 ## Pulling upstream improvements
 
 Your fork's `upstream` remote is already wired to `MadsLorentzen/ai-job-search`. To pull in new upstream releases:

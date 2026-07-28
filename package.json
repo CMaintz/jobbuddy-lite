@@ -1,0 +1,33 @@
+{
+  "name": "jobbuddy-lite",
+  "version": "1.0.0",
+  "description": "Local job search GUI — Jobbuddy Lite",
+  "main": "electron/main.js",
+  "scripts": {
+    "electron": "electron .",
+    "build:win": "cross-env WIN_CSC_LINK=\"\" electron-builder --win portable"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "dk.maintz.jobbuddy-lite",
+    "productName": "Jobbuddy Lite",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  }
+}
