@@ -56,7 +56,7 @@ Bun.serve({
           delete args.id;
           args._positional = id;
         }
-        const result = await runPortal(portal.cli, search[2], args);
+        const result = await runPortal(portal, search[2], args);
         return result.ok ? json(result.data) : err(result.error ?? "portal failed", 502);
       }
 

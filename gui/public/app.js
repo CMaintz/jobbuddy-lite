@@ -88,10 +88,7 @@ async function searchJobs() {
 
   const results = await Promise.all(active.map(async (name) => {
     const params = new URLSearchParams({ query, jobage, limit: "20" });
-    if (location) {
-      if (name === "linkedin-search") params.set("location", location);
-      else params.set("query", `${query} ${location}`);
-    }
+    if (location) params.set("location", location);
     try {
       const data = await api(`/api/portals/${name}/search?${params}`);
       return (data.results ?? []).map((j) => ({ ...j, portal: name }));
@@ -115,7 +112,7 @@ function jobCard(j) {
     <div class="actions">
       ${j.url ? `<a class="btn ghost small" href="${esc(j.url)}" target="_blank" rel="noopener">Open</a>` : ""}
       ${j.id ? `<button class="btn ghost small" onclick="jobDetail('${esc(j.portal)}','${id}')">Details</button>` : ""}
-      ${j.url ? `<button class="btn small" onclick="applyTo('${esc(j.url)}')">Apply</button>` : ""}
+      ${j.url ? `<button class="btn small" onclick="applyTo('${esc(j.url)}')">Apply with Claude</button>` : ""}
     </div></div>`;
 }
 
