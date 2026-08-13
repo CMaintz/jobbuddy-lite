@@ -32,14 +32,15 @@ async function loadDashboard() {
   const f = s.funnel;
   const pct = (r) => `${r.n}/${r.total} (${r.pct}%)`;
   $("#statCards").innerHTML = `
-    <div class="card"><div class="k">Applications</div><div class="v">${s.total}</div></div>
+    <div class="card"><div class="k">Applications</div><div class="v">${s.total}</div>${
+      s.drafted ? `<div class="d">${f.applied} submitted, ${s.drafted} drafted</div>` : ""}</div>
     <div class="card"><div class="k">Response rate</div><div class="v">${f.response.pct}%</div><div class="d">${pct(f.response)}</div></div>
     <div class="card"><div class="k">Interview rate</div><div class="v">${f.interview.pct}%</div><div class="d">${pct(f.interview)}</div></div>
     <div class="card"><div class="k">Offer rate</div><div class="v">${f.offer.pct}%</div><div class="d">${pct(f.offer)}</div></div>
     <div class="card"><div class="k">Hired</div><div class="v">${f.hired.n}</div></div>`;
 
-  const stages = [["Applied", s.total], ["Response", f.response.n], ["Interview", f.interview.n], ["Offer", f.offer.n], ["Hired", f.hired.n]];
-  const max = Math.max(1, s.total);
+  const stages = [["Applied", f.applied], ["Response", f.response.n], ["Interview", f.interview.n], ["Offer", f.offer.n], ["Hired", f.hired.n]];
+  const max = Math.max(1, f.applied);
   $("#funnelBars").innerHTML = stages.map(([k, v]) =>
     `<div class="bar" style="height:${(v / max) * 100}%"><em>${v}</em><label>${k}</label></div>`).join("");
 
@@ -138,26 +139,30 @@ window.applyTo = (url) => {
 };
 
 /* ---------- pipeline ---------- */
+// Canonical tracker statuses use underscores (offer_declined, no_response);
+// normStatus folds legacy space spellings onto them so matching is spelling-agnostic.
+const normStatus = (s) => (s || "").trim().toLowerCase().replace(/\s+/g, "_");
 const KCOLS = [
+  { key: "drafted", title: "Drafted", statuses: ["drafted"] },
   { key: "applied", title: "Applied", statuses: ["applied"] },
   { key: "interview", title: "Interview", statuses: ["interview"] },
   { key: "offer", title: "Offer", statuses: ["offer"] },
   { key: "hired", title: "Hired", statuses: ["hired"] },
-  { key: "closed", title: "Closed", statuses: ["rejected", "no response", "withdrawn", "offer declined"] },
+  { key: "closed", title: "Closed", statuses: ["rejected", "no_response", "withdrawn", "offer_declined"] },
 ];
 
 async function loadPipeline() {
   const rows = await api("/api/tracker");
   const kb = $("#kanban");
   kb.innerHTML = KCOLS.map((col) => {
-    const cards = rows.filter((r) => col.statuses.includes((r.status || "").trim().toLowerCase()));
+    const cards = rows.filter((r) => col.statuses.includes(normStatus(r.status)));
     return `<div class="kcol" data-col="${col.key}">
       <h3>${col.title}<span>${cards.length}</span></h3>
       ${cards.map((r) => `
         <div class="kcard" draggable="true" data-company="${esc(r.company)}" data-role="${esc(r.role)}">
           <div class="co">${esc(r.company)}</div><div class="ro">${esc(r.role)}</div>
           <div class="dt">${esc(r.date)}${r.channel ? " · " + esc(r.channel) : ""}</div>
-          ${col.key === "closed" ? `<div class="st"><span class="statuspill pill-closed">${esc(r.status)}</span></div>` : ""}
+          ${col.key === "closed" || col.key === "drafted" ? `<div class="st">${statusPill(r.status)}</div>` : ""}
         </div>`).join("")}
     </div>`;
   }).join("");
@@ -188,9 +193,10 @@ async function loadPipeline() {
 }
 
 function statusPill(status) {
-  const s = (status || "").trim().toLowerCase();
-  const cls = s === "applied" ? "pill-applied" : s === "interview" ? "pill-interview"
-    : s === "offer" ? "pill-offer" : s === "hired" ? "pill-hired" : "pill-closed";
+  const s = normStatus(status);
+  const cls = s === "drafted" ? "pill-drafted" : s === "applied" ? "pill-applied"
+    : s === "interview" ? "pill-interview" : s === "offer" ? "pill-offer"
+    : s === "hired" ? "pill-hired" : "pill-closed";
   return `<span class="statuspill ${cls}">${esc(status)}</span>`;
 }
 
@@ -198,7 +204,7 @@ function pickClosedStatus(company, role) {
   openModal(`<h2>Close application</h2>
     <div class="sub">${esc(company)} — ${esc(role)}</div>
     <div class="grid"><div class="full"><label>Final status</label>
-      <select id="closeStatus"><option>rejected</option><option>no response</option><option>withdrawn</option><option>offer declined</option></select>
+      <select id="closeStatus"><option value="rejected">rejected</option><option value="no_response">no response</option><option value="withdrawn">withdrawn</option><option value="offer_declined">offer declined</option></select>
     </div><div class="full"><label>Note (optional)</label><input id="closeNote" placeholder="e.g. rejected after final round"></div></div>
     <div class="foot"><button class="btn ghost" onclick="closeModal()">Cancel</button>
     <button class="btn" id="closeConfirm">Save</button></div>`);
@@ -221,7 +227,7 @@ $("#addAppBtn").addEventListener("click", () => {
       <div><label>Company *</label><input id="fCompany"></div>
       <div><label>Role *</label><input id="fRole"></div>
       <div><label>Date</label><input id="fDate" type="date" value="${new Date().toISOString().slice(0, 10)}"></div>
-      <div><label>Status</label><select id="fStatus"><option>applied</option><option>interview</option><option>offer</option><option>hired</option><option>rejected</option><option>no response</option><option>withdrawn</option><option>offer declined</option></select></div>
+      <div><label>Status</label><select id="fStatus"><option>drafted</option><option>applied</option><option>interview</option><option>offer</option><option>hired</option><option>rejected</option><option value="no_response">no response</option><option>withdrawn</option><option value="offer_declined">offer declined</option></select></div>
       <div><label>Channel</label><input id="fChannel" placeholder="e.g. LinkedIn, referral"></div>
       <div><label>Sector</label><input id="fSector"></div>
       <div class="full"><label>Source URL</label><input id="fSource" placeholder="https://…"></div>
