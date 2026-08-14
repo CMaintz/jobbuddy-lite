@@ -54,7 +54,7 @@ export function startRun(opts: {
   const runId = crypto.randomUUID();
   const resuming = !!opts.sessionId;
   const sessionId = opts.sessionId ?? crypto.randomUUID();
-  const mode = opts.permissionMode ?? "acceptEdits";
+  const mode = opts.permissionMode ?? "bypassPermissions";
 
   const argv = [
     ...CLAUDE,
