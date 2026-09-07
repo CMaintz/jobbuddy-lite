@@ -60,9 +60,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** C# / .NET (ASP.NET Core & MVC, Web API, EF), Java / Spring Boot, PHP / Symfony / Shopware, REST API design, integrations, event-driven architecture, RabbitMQ / messaging, asynchronous workflows, SQL (MSSQL/PostgreSQL/MySQL), Docker, CI/CD, AI/LLM integration & production automation
+**Moderate match areas:** TypeScript/JavaScript front-end (Angular, React, Vue), Swift/SwiftUI (iOS), Azure (Functions, SQL), Kubernetes, Redis, hexagonal/clean architecture at scale, distributed-systems depth beyond project scale
+**Weak match areas:** Roles requiring years of production tenure or formal seniority; deep specialization in areas outside his stack (e.g. Go/Rust/C++, data engineering/ML training, embedded, cloud-native ops at scale); pure frontend/UI specialist roles (also a motivation mismatch)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -74,9 +74,9 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Backend service/integration development in a production e-commerce context (WEXO/Shopware); building event-driven, AI-automation pipelines end-to-end; full-stack academic + personal projects across C#/.NET, Java/Spring, PHP, React/Angular
+**Moderate:** Full-stack product roles, integration/platform roles, AI-engineering roles; distributed-systems roles (strong fundamentals, project-scale rather than large-scale production tenure)
+**Entry-level:** Team-lead / senior / architect titles (has ownership scope but not the years); specialist roles far from his stack. Note: 8 years of retail people-leadership (Netto/Kiwi) is real leadership experience, but not software leadership.
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -107,19 +107,21 @@ Does this role advance career goals and contain tasks that energize?
 | 0-39 | Dead end or backwards step |
 
 **Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+- Land a strong first full-time software developer role (backend-leaning) after the Datamatiker degree
+- Grow toward software architecture, distributed systems and platform/integration engineering
+- Deepen C#/.NET and Java/Spring backend expertise while keeping production AI-automation as a differentiator
+- Build reliable, maintainable production systems close to the business
 
-**Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+**Motivation filter:** Evaluate not just whether he *can* do the tasks, but whether the tasks will *energize* him. Consider:
+- Tasks that energize: backend service/API design, integrations & messaging, event-driven systems, architecture decisions, production AI automation done properly, learning new complex tech, owning work to production
+- Tasks that drain: pure frontend/UI-only work, purely non-technical/administrative work, maintenance-only with no new development
+- Non-task factors: leadership style, department culture, company values, degree of autonomy. Any software developer role, backend-leaning, is fair game (backend, full-stack, platform, AI). Pure frontend is a poor fit.
 
 **Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+- **Location**: Greater Aarhus preferred (on-site fine within commute range); hybrid/remote acceptable elsewhere in DK by distance; fully remote required if very far; no relocation. Relocation-required roles FAIL location.
+- **Flexibility**: Young family (fiancée + young son) - heavy on-call or frequent travel is a FLAG for the user's judgment, not an auto-fail.
+- **Professional development**: Early-career; values roles with room to grow into more architectural/strategic decisions and with mentoring/sparring available.
+- **Salary**: Not encoded as a filter (user opted out). Do not screen roles on pay.
 
 ### 6. Salary Benchmark (Optional)
 

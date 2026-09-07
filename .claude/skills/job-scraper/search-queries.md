@@ -1,81 +1,81 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
-
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Enabled for this Danish-market profile: `linkedin-search`, `freehire-search`, plus the Danish boards `jobindex-search`, `jobbank-search`, `jobdanmark-search`, `jobnet-search`. You do **not** need a matching `site:` line below for those CLIs to run.
 
 The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
 
-**Language scope:** write every query category in every language listed in your CLAUDE.md Languages table (typically 1-2, sometimes more). A posting requiring a language you have *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than you declared in a language you *do* work in is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule. Translate each category's keywords rather than machine-translating word-for-word (e.g. "Frontend Developer" -> "Desarrollador Frontend", not a literal word-for-word translation) if you work in more than one language.
+**Language scope:** write every query category in **both Danish and English** (Christoffer works in both; see the Languages table in CLAUDE.md). A posting requiring a language he has *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than declared in a language he *does* work in is flagged for his own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate. Translate keywords idiomatically (e.g. "Backend Developer" → "Backend-udvikler"), not word-for-word.
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary (Danish job boards + LinkedIn):
+- **Jobindex.dk** - Denmark's largest general job board (covered by `jobindex-search` CLI)
+- **linkedin.com/jobs** - filter to Denmark / Aarhus (also covered by `linkedin-search` CLI)
+- **Jobbank.dk**, **Jobnet.dk**, **jobdanmark** - additional Danish boards (CLIs enabled)
+- **thehub.io** / **ITjob.dk** - Danish tech/startup boards (WebSearch fallback)
 
 Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+- Direct Google searches with `site:` filters for Aarhus-area software employers
 
 ## Query Categories
 
-Queries are grouped by priority. Write **each category in every language from your Languages table** (see Language scope above). Combine each query with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Queries are grouped by priority. Write **each category in both Danish and English**. Combine each query with Aarhus-area location terms where the site supports it.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Backend .NET/C# developer
 
-These match your strongest and most desired career direction.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
+Strongest and most desired direction.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:jobindex.dk "backend-udvikler" (.NET OR "C#") Aarhus
+site:jobindex.dk ".NET-udvikler" Aarhus OR Østjylland
+site:linkedin.com/jobs "Backend Developer" ("C#" OR ".NET") Aarhus Denmark
+site:linkedin.com/jobs "backend-udvikler" .NET Aarhus
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Adjacent roles you could pivot into.
+### Priority 2: Java / Spring backend & full-stack developer
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:jobindex.dk "Java-udvikler" (Spring OR "Spring Boot") Aarhus
+site:jobindex.dk ("fullstack-udvikler" OR "full-stack udvikler") Java Aarhus
+site:linkedin.com/jobs "Java Developer" ("Spring Boot" OR backend) Aarhus Denmark
+site:linkedin.com/jobs "Fullstack Developer" (Java OR ".NET") Aarhus
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 3: AI automation / platform / integration
 
-Wider net for general technical roles.
+Adjacent directions that lean on the WEXO experience.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:jobindex.dk ("AI Engineer" OR "AI-udvikler" OR "integrationsudvikler") Aarhus
+site:jobindex.dk ("platform engineer" OR "platformsudvikler") Aarhus
+site:linkedin.com/jobs ("AI Engineer" OR "Integration Developer") Aarhus Denmark
+site:linkedin.com/jobs ("LLM" OR "AI automation") developer Denmark remote
+```
+
+### Priority 4: Broader software developer (wider net)
+
+```
+site:jobindex.dk (softwareudvikler OR systemudvikler) Aarhus
+site:jobindex.dk (softwareudvikler OR "graduate developer" OR "junior udvikler") Aarhus
+site:linkedin.com/jobs ("Software Developer" OR "Software Engineer") Aarhus Denmark
+site:thehub.io (backend OR fullstack) developer Aarhus
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+Verify each result against these tiers (home base: Viby J, 8260, Aarhus). On-site is fine within the ideal tier.
+
+- **Ideal (on-site OK):** Aarhus C, Viby J, Højbjerg, Risskov, Åbyhøj, Brabrand, Hasselager, Tilst, Skanderborg, Hinnerup — Greater Aarhus, roughly within ~30 min.
+- **Acceptable (hybrid/remote-friendly):** Rest of East Jutland within ~45–60 min — Horsens, Randers, Silkeborg, Vejle — if the role is hybrid or remote-leaning.
+- **Borderline:** Farther Danish cities (Kolding, Fredericia, Herning) only if strongly hybrid/remote.
+- **Remote-only necessity:** Copenhagen, Odense, Aalborg and similar — only if the role is **fully remote**.
+- **Too far / exclude:** On-site roles beyond ~60 min daily commute, or any role requiring relocation (deal-breaker).
 
 ## Language Filter
 
-Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). Postings simply *written* in a language you don't work in, that don't require it on the job, are fine.
+Working languages: Danish (native), English (fluent). Apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language not on that table (as a job condition) is excluded; a posting requiring a higher level than declared in Danish/English is flagged, not excluded. Postings simply *written* in another language that don't require it on the job are fine. In practice almost all Danish-market postings pass.
 
 ## Date Filter
 
@@ -84,4 +84,5 @@ Only include jobs posted within the last 14 days, or with an application deadlin
 ## Adapting Queries
 
 If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+- "/scrape .NET" → Priority 1 queries + custom `.NET`-specific queries
+- "/scrape AI" → Priority 3 queries + custom LLM/automation queries

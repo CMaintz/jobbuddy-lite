@@ -1,8 +1,9 @@
-%% Example CV - [YOUR_NAME]
-%% Comprehensive overview of all competencies, experience, and achievements.
-%% Use as a master reference when tailoring role-specific CVs.
+%% Example CV - Christoffer Maintz
+%% Comprehensive master reference of all competencies, experience, and achievements.
+%% Use as the source when tailoring role-specific CVs (cv/main_<company>_<role>.tex).
 %%
-%% SETUP: Run /setup to populate this with your actual information.
+%% CV language default: Danish (section headings are Danish). Switch to English per-posting
+%% for English-first roles, translating headings back per 05-cv-templates.md.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,146 +25,161 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Christoffer Maintz - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Christoffer}{Maintz}
+\address{Viby Torv 8, st. tv, 8260 Viby J}{Danmark}{}
+\phone[mobile]{+45 22 66 56 25}
+\email{cmaintz@outlook.com}
+\extrainfo{\href{https://linkedin.com/in/christoffer-maintz}{LinkedIn}, \href{https://github.com/CMaintz}{GitHub}}
 
 \begin{document}
 
 \makecvtitle
 
 % ============================================================
-%     PROFILE STATEMENT
+%     PROFIL
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Backend-orienteret softwareudvikler og datamatiker med praktisk erfaring fra udvikling og drift af produktionskritiske systemer. Har som ene udvikler haft det tekniske ansvar for et forretningskritisk AI-baseret automatiseringssystem, der fortsat er i daglig drift. Stærkt fokus på C\#/.NET, Java/Spring, API-udvikling, integrationer, event-drevne systemer, korrekt databehandling, sporbarhed og stabil drift. Arbejder struktureret og trives i agile teams med fælles ansvar for kvalitet og tekniske beslutninger.}
 
 % ============================================================
-%     CORE COMPETENCIES
+%     KERNEKOMPETENCER
 % ============================================================
 
-\section{Core Competencies}
+\section{Kernekompetencer}
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Backend \& sprog}: C\#/.NET (ASP.NET Core \& MVC, Web API, EF), Java (Spring Boot, Spring Data JPA, Spring Security), PHP (Symfony, Shopware 6).
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{API'er \& integration}: REST API-design, tredjeparts-integrationer, webhooks, event-drevet arkitektur, RabbitMQ, asynkrone workflows, idempotens, retries, rate limiting.
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{AI / LLM \& automation}: OpenAI, Google Gemini, Claude; schema-styret JSON-output, RAG, embeddings, vector search (pgvector, Typesense), confidence-scoring, human-in-the-loop, audit trails, MCP.
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Data \& databaser}: MS SQL Server/T-SQL, PostgreSQL, MySQL, Oracle/PL-SQL; datamodellering, query-optimering, migrationer (Flyway), dataintegritet.
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Cloud, DevOps \& kvalitet}: Docker, Docker Compose, CI/CD (GitHub Actions, GitLab CI), Git, unit-/integrationstest, code reviews, monitorering, logging, Scrum.
 
 \end{itemize}
 
 % ============================================================
-%     PROFESSIONAL EXPERIENCE
+%     ERHVERVSERFARING
 % ============================================================
 
-\section{Professional Experience}
+\section{Erhvervserfaring}
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY-Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- WEXO ---
+\item{\cventry{2025-2026}{Softwareudvikler / Backend Software Engineer (Praktikant)}{WEXO A/S}{Aarhus}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Udviklede som ene udvikler en AI-drevet produktberigelses- og visualiseringsplatform (Shopware 6-plugin, PHP/Symfony) end-to-end fra teknisk design til produktion; fortsat i daglig drift.
+    \item Byggede en event-drevet pipeline (Symfony Messenger over RabbitMQ) med batching, retry med exponential backoff og domæne-niveau idempotens.
+    \item Implementerede confidence-gated automation med human-in-the-loop review og fulde audit trails (prompt, model, version, score, godkendelseshistorik).
+    \item Automatiserede flersproget berigelse (SEO, metadata, kategorisering, oversættelser) på 3.000+ produkter, ca. 20 min sparet pr. produkt, skønnet 1.000+ timer.
+    \item Byggede storefront-visualisering i TypeScript og admin-moduler i Vue (Shopware), samt et preview-system til transaktionsmails mod reelle ordredata; deltog i code reviews, pair programming og produktionsdebugging.
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Netto ---
+\item{\cventry{2017-2023}{Salgsleder (fra 1. assistent)}{Netto, Salling Group}{Aarhus}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Team leadership, rekruttering og medarbejderudvikling; drifts- og bemandingsplanlægning.
+    \item Ledte et spildreduktionsinitiativ med en årlig besparelse på ca. 1 mio. DKK.
+    \item Ansvar for daglig drift, procesforbedringer, kundeservice, varebestilling og MU-samtaler.
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY-YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Kiwi ---
+\item{\cventry{2015-2017}{Souschef (fra 1. assistent)}{Kiwi}{Aarhus}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Medansvar for daglig drift, planlægning og koordinering af medarbejdere.
+    \item Rekruttering, onboarding og understøttelse af ledelsen.
 \end{itemize}}}
 
 \end{itemize}
 
 % ============================================================
-%     EDUCATION
+%     PROJEKTER (UDVALG)
 % ============================================================
 
-\section{Education}
+\section{Projekter (udvalg)}
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
+\item{\cventry{2026}{AutoApplicant - AI-jobansøgningsplatform}{Personligt projekt}{}{}{\vspace{1pt}
+Full-stack platform der importerer jobopslag og genererer vinklede CV'er/ansøgninger. Java, Spring Boot, streng hexagonal arkitektur, Angular, PostgreSQL + pgvector, Typesense, OpenAI/Gemini, Firebase Auth, Docker Compose. Privacy-by-design.
 }}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY-YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
+\item{\cventry{2026}{DevInsight - Developer-analytics}{Personligt projekt}{}{}{\vspace{1pt}
+Importerer GitHub-repos og scorer dem på aktivitet, struktur og kodekvalitet. Java, Spring Boot, hexagonal, GitHub OAuth2 \textrightarrow{} JWT, Spring Data JPA, PostgreSQL, Flyway.
+}}
+
+\vspace{3pt}
+
+\item{\cventry{2024-2025}{Sall Whisky Distillery - eksamensprojekt}{Erhvervsakademi Aarhus}{}{}{\vspace{1pt}
+Regeltungt produktionsstyrings-domæne bygget som JavaFX-desktop og siden som Spring Boot 3.2 REST + Angular 17 SPA. Karakter 10.
 }}
 
 \end{itemize}
 
 % ============================================================
-%     LANGUAGES
+%     UDDANNELSE
 % ============================================================
 
-\section{Languages}
+\section{Uddannelse}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
+
+\item{\cventry{2023-2026}{Datamatiker (AP Degree in Computer Science)}{Erhvervsakademi Aarhus}{}{}{\vspace{1pt}
+Valgfag: Avancerede Databaser, iOS. Afsluttende eksamensprojekt: AI-produktberigelsesplatform (WEXO). Praktik bedømt 12.
+}}
+
+\vspace{3pt}
+
+\item{\cventry{2021-2023}{HF (Højere Forberedelseseksamen)}{Aarhus HF \& VUC}{}{}{}}
+
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     SPROG
 % ============================================================
 
-\section{Publications}
+\section{Sprog}
 \vspace{1pt}
 \begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
+\item Dansk (modersmål), Engelsk (flydende).
 \end{itemize}
 
 % ============================================================
-%     HONORS AND AWARDS (optional)
+%     KURSER & CERTIFIKATER
 % ============================================================
 
-\section{Honors and Awards}
+\section{Kurser \& Certifikater}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item Ledelse \& Kommunikation - Niels Holte Kurser (2018, 8 kursusdage).
 \end{itemize}
 
 % ============================================================
-%     REFERENCES
+%     REFERENCER
 % ============================================================
 
-\section{References}
+\section{Referencer}
 \vspace{1pt}
 \begin{itemize}
-\item{Available upon request.}
+\item{Fås ved henvendelse.}
 \end{itemize}
 
 \end{document}

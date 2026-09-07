@@ -115,12 +115,24 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+CV language default is **Danish** (see profile). Write the profile statement in the CV's language; the Danish forms below are the starting point, with English equivalents for English-first roles. Adapt the specifics to the posting - these are phrasing references, and every factual claim still comes from `01-candidate-profile.md`.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Backend .NET/C# roles (Danish):**
+> Backend-orienteret softwareudvikler / datamatiker med praktisk erfaring fra udvikling og drift af produktionskritiske systemer. Har som ene udvikler haft det tekniske ansvar for et forretningskritisk AI-baseret automatiseringssystem, der fortsat er i daglig drift. Stærkt fokus på C#/.NET, API-udvikling, integrationer, korrekt databehandling, sporbarhed og stabil drift. Arbejder struktureret og trives i agile teams med fælles ansvar for kvalitet og tekniske beslutninger.
+
+**For Backend .NET/C# roles (English):**
+> Backend-oriented software developer with hands-on experience building and operating production-critical systems. As sole developer, held full technical ownership of a business-critical AI automation platform that remains in daily production use. Strong focus on C#/.NET, API development, integrations, correct data handling, traceability and reliable operations. Works in a structured way and thrives in agile teams with shared ownership of quality and technical decisions.
+
+**For Java / Spring backend & full-stack roles:**
+> Datamatiker og backend-udvikler med erfaring i Java/Spring Boot og streng hexagonal arkitektur fra egne fuldstack-projekter, samt produktionserfaring fra en event-drevet AI-platform bygget end-to-end som ene udvikler. Stærk på REST-API'er, integrationer, asynkrone workflows og vedligeholdbare, testbare systemer. (English: Computer-science graduate and backend developer with Java/Spring Boot and strict hexagonal-architecture experience from independent full-stack projects, plus production experience from an event-driven AI platform built end-to-end as sole developer.)
+
+**For AI automation / AI engineering roles:**
+> Softwareudvikler med praktisk erfaring i at gøre generativ AI produktionsklar: leverandøruafhængige LLM-integrationer (OpenAI, Gemini), schema-styret JSON-output, RAG/embeddings, heuristisk confidence-scoring, human-in-the-loop og fulde audit trails. Byggede som ene udvikler en AI-drevet berigelsesplatform, der automatiserede 1.000+ timers manuelt arbejde og fortsat er i daglig drift. (English: Software developer with hands-on experience making generative AI production-ready - provider-agnostic LLM integrations, schema-driven JSON, RAG/embeddings, confidence scoring, human-in-the-loop and full audit trails; built a solo AI enrichment platform that automated 1,000+ hours of manual work and remains in daily use.)
+
+**For general backend / platform / integration roles:**
+> Backend- og integrationsudvikler med fokus på robuste, event-drevne systemer (RabbitMQ, asynkrone workflows, idempotens, retries) og bred stak på tværs af C#/.NET, Java/Spring og PHP/Symfony. Erfaring med hele livscyklussen fra design til produktion og drift, plus 8 års ledelseserfaring fra detailhandlen. (English: Backend and integration developer focused on robust, event-driven systems, with breadth across C#/.NET, Java/Spring and PHP/Symfony, full lifecycle experience from design to production and operations, plus 8 years of retail leadership.)
+
+**Framing note (early career):** the strength is *scope and ownership*, not tenure. Lead with the WEXO platform (sole developer, production, still in use, measurable impact) and the breadth of self-driven projects. Never imply years of professional software experience or seniority the intern/graduate titles don't support.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 

@@ -1,7 +1,4 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Christoffer Maintz
 
 ## Role
 This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
@@ -13,79 +10,80 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
+- **Name:** Christoffer Maintz (full legal name: Christoffer Romm Maintz Andersen)
+- **Location:** Viby J (Aarhus), Denmark (Viby Torv 8, st. tv, 8260 Viby J). Greater Aarhus area preferred; hybrid/remote acceptable depending on distance; fully remote required if very far. No relocation.
+- **Phone:** +45 22 66 56 25
+- **Email:** cmaintz@outlook.com
+- **LinkedIn:** linkedin.com/in/christoffer-maintz
+- **GitHub:** github.com/CMaintz
 - **Languages:**
   | Language | Level |
   |----------|-------|
-  | [LANGUAGE] | [LEVEL] |
-  <!-- Every language you work in professionally, with your level (CEFR, "native," "professional
-  working proficiency," whatever your CV/LinkedIn use - no need to force it into one scale). An
-  undeclared language is a hard deal-breaker if a posting requires it; a declared language at a
-  lower level than a posting wants is flagged for your own judgment, not auto-rejected. See
-  04-job-evaluation.md's Language Gate. -->
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+  | Danish | Native |
+  | English | Fluent (professional working proficiency) |
+- **CV language:** Danish <!-- Danish-market default; switch to English per-posting for English-first roles. Cover letters auto-match each posting's language. -->
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Newly graduated Datamatiker (AP Degree in Computer Science, completed 2026-01-09). Seeking first full-time software developer role, backend-leaning.
+- **LinkedIn headline:** "Backend & Fullstack Developer | Distributed Systems • Production Workflows • AI Automation | Java • C# • PHP"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Datamatiker / AP Degree in Computer Science** (Aug 2023 - Jan 2026) - Erhvervsakademi Aarhus (Business Academy Aarhus)
+  - Final exam project: AI-powered product-enrichment & visualization platform (built during the WEXO internship)
+  - Electives: Advanced Databases, iOS
+  - Internship graded 12 (A); strong marks across programming, databases, and system development
+- **HF (Higher Preparatory Examination)** (Aug 2021 - Jun 2023) - Aarhus HF & VUC
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Software Developer / Backend Software Engineer (Intern)** (Aug 2025 - Jan 2026) - **WEXO A/S** (Aarhus)
+  - Sole developer of an AI-powered product-enrichment & visualization platform (Shopware 6 plugin) for the client Illux, taken from technical design to production deployment; still in daily use
+  - Event-driven backend (PHP 8.1+/Symfony, Symfony Messenger over RabbitMQ): batching, retry with exponential backoff, domain-level idempotency, full audit trails, confidence-gated automation with human-in-the-loop review
+  - Automated multilingual enrichment (SEO, metadata, categorization, translations) across 3,000+ products, ~20 min/product saved, est. 1,000+ hours; built a transactional email-template preview system on the same platform
+- **Salgsleder / Sales Manager** (May 2017 - Oct 2023) - **Netto (Salling Group)** (Aarhus)
+  - Progressed from First Assistant to Sales Manager; team leadership, recruitment, staff development, operational and staffing planning
+  - Led a waste-reduction initiative saving ~1M DKK annually
+- **Souschef / Assistant Store Manager** (Oct 2015 - May 2017) - **Kiwi** (Aarhus)
+  - Progressed from First Assistant to Assistant Store Manager; co-responsible for daily operations, planning, recruitment and onboarding
+
+### Independent Projects
+- **AutoApplicant** (May 2026 - present, in development) - Full-stack AI job-application platform. Java/Spring Boot, strict hexagonal (ports & adapters), Angular/TypeScript, PostgreSQL + pgvector, Typesense, OpenAI + Gemini, Firebase Auth, Docker Compose. Privacy-by-design (PII excluded from AI payloads).
+- **DevInsight** (Mar 2026 - present, in development) - Developer-analytics platform. Java/Spring Boot, hexagonal, GitHub OAuth2 → JWT, JPA/PostgreSQL, Flyway.
+- **MDB - Movie & TV Browser** (2025-2026) - One React codebase running as both web app and sideloaded LG webOS smart-TV app; ratings aggregation, Firebase sync, D-pad spatial navigation.
+- **MovieWheel** (May-Jun 2026) - React front-end + hardened Vercel serverless proxy (rate limiting, allow-list, edge caching).
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** C# / .NET (ASP.NET Core & MVC, Web API, EF), Java (Spring Boot, Spring Data JPA, Spring Security), PHP (Symfony, Shopware 6), REST API design, integrations, event-driven architecture, RabbitMQ / messaging, asynchronous workflows
+- **Secondary:** TypeScript/JavaScript (Angular, React, Vue), Swift/SwiftUI (iOS), SQL (MSSQL/T-SQL, PostgreSQL, MySQL, Oracle/PL-SQL), Docker/Docker Compose, CI/CD (GitHub Actions, GitLab CI), Redis, Firebase
+- **Domain:** Backend & distributed systems, integration design, production/operations ("drift"), AI/LLM automation in production (OpenAI, Gemini; RAG, embeddings, pgvector/Typesense, prompt engineering, confidence scoring, human-in-the-loop, audit trails, MCP), data integrity & traceability
+- **Software:** Git/GitHub/GitLab, IntelliJ IDEA / Rider / Visual Studio / VS Code / PhpStorm / Xcode, Postman, Jira, Trello, Maven, OpenAPI/Swagger, Claude Code
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
-
-### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- **Ledelse & Kommunikation (Leadership & Communication)** - Niels Holte Kurser, 2018 (8-day leadership development programme)
+- **Konflikthåndtering & Deeskalering (Conflict Management & De-escalation)** - Butikskontrol Syd, 2017
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+<!-- No competition/hackathon awards on record. Notable academic grades: internship 12/A; several projects graded 10/B. -->
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Analytical & structured** - systematic, detail-oriented, methodical problem-solving
+- **Fast, self-directed learner** - takes ownership of unfamiliar, complex areas and drives them to production (evidenced by owning a business-critical AI system solo as an intern)
+- **Strengths:** technical depth + business understanding, reliability under pressure, proactivity/initiative, collaboration and clear communication, leadership experience from retail
+- **Growth areas:** early-career breadth (first full-time software role; deep production experience concentrated in one intensive internship)
+- **Thrives in:** autonomous, agile teams with shared ownership of quality, robustness and technical decisions; solving real business problems end-to-end
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Backend development, software architecture and distributed systems - building reliable, maintainable production systems close to the business
+- AI-powered automation done properly for production: reliability, confidence scoring, human-in-the-loop, auditability
+- Taking ideas from early discussion through design, implementation and production deployment
+- Learning new complex technologies quickly
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- **Open / broad:** any genuine software developer role, backend-leaning (backend, full-stack, platform/integration, AI automation). Not a fan of pure frontend.
+- **Familiar contexts:** e-commerce & platform (WEXO background), energy/utilities (e.g. Norlys), software houses & consultancies, product companies. No fixed target-company list.
 
 ### Deal-breakers
-<!-- Hard constraints on job search. Language requirements are handled separately and
-automatically from your Languages table above - don't duplicate them here. -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Requires relocation out of the Greater Aarhus area (on-site fine within commute range; otherwise must be hybrid/remote by distance; fully remote if very far)
+- Pure frontend-only or non-coding roles
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
